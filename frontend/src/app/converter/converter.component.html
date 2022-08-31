@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row m-3">
+    <div class="col-6">
+      <div class="row">
+        <div class="col-12">
+          <mat-card class="dashboard-card ">
+            <mat-card-header>
+              <mat-card-title>
+                <!-- {{card.title}} -->
+                Select DFD File
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="dashboard-card-content">
+              <div>
+                  <form [formGroup]="form" enctype="multipart/form-data" >
+                    <div class="input-group mb-3" >
+                      <input class="form-control m-3" type="file"  name="image"
+                      formControlName="file"
+                      (change)="onFileChange($event)" >
+                    </div>
+                    <button mat-raised-button color="primary" (click)="identifyShapes()" > <mat-icon >file_upload</mat-icon> Identify Shapes </button>
+                  </form>
+
+                  <!-- <mat-form-field fxFlex ="20">
+                    <mat-label>Search</mat-label>
+                    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+                  </mat-form-field> -->
+              </div>
+
+              <div class="mat-elevation-z8">
+
+
+                <!-- <mat-paginator [pageSizeOptions]="[5, 12]" aria-label="Select page of patients"></mat-paginator> -->
+              </div>
+
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="col-12 p-3">
+          <div class="bg-warning ">
+            {{realValue}}
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+    <div class="col-6 bg-primary-custom p-3" >
+      <iframe frameborder="0" style="width:100%;height:655px;" src="https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&layers=1&nav=1&title=Test_Dfd_diagram.drawio#R7V1dd6M2E%2F41vtwcQCDwZWI73Z6zSXOaPe3bS2LLNm8xcgHno7%2B%2BkhE2GsmO7RVf2eRi15ZggJl55ksjPECj1esvabhe3tEZiQeONXsdoPHAcQIcsH%2F5wFsxgAIxsEijWTFk7wceo3%2BJGLTE6CaakUw6MKc0zqO1PDilSUKmuTQWpil9kQ%2Bb01i%2B6jpcEGXgcRrG6uif0Sxfisdy8H78K4kWy%2FLKNh4WM0%2Fh9O9FSjeJuF5CE1LMrMKSjHjGbBnO6EtlCE0GaJRSmhefVq8jEnOulhwrzrs9MLu75ZQk%2BSknOMUJz2G8EU89cHDMTr1Z87vL3wQz8D8bfks3qzBdRMkAXbNZa80kfbN9Kj74JafrYsItJ3Lymn8J42ghzpiyuyJpZW5GpjQN84iKAxjLSBpHjF38mPKi7NNC%2FL%2B9tSxPabIoRx9SOiVZxs62ywOe0gF%2F7lt4IhuSz61MrOHY8gCR8xkTk3lezARiBj7Z41uWkxU74DHfMLgcuas6rv6QEqYxhRi0l3akizrPJM0jhpPrQrLjVTSb8bkbIerxTs6UHTqPtwo%2Bj5jioZs5TXIBddsR32%2FDVRRzI%2FGVxM%2BEk%2Bbsz1cxP4h93EKJzMS3LQVxM7bQhr93CEX8CHapEY1pur1dNMG3t6ORigwBFv405LUyJJDyC6ErkqdMGpaYdZCA%2Fhv4%2FrI3D3ZpvZYV0zAUY6GwSIsd6T002QeBTj1SkYLUScLES0gacX0GInpZRjl5XIdT%2Fv2FmWeddA7K8WwW396aYrErs9h2VBYPNRzGBjjsKhz%2BNXkmWU7T7MPw17VkDfbsxtjrKez97f7LeHJ3fT%2Fmhu%2Bvx%2B%2BTO%2FZhPPlj8u23h7vJ%2FXeF68xbrvnHtTD56ObH5JAVhsi6slzfu0wuo5EZvbesq2H1z5bkhIaqnFxLIyjPgKDwR4oJnP7HBNdJGL9lUfbpm48ACA1ly2a7Dfpmv%2F%2BIeQdHB7Fiod4C7FuU5Wz6gWZZ9MQoNxx172N%2BGm%2B48D4BfgzgOAAu0VddYm0AD35igLu9BfiY5GHExTha0owcyG1rBLjA9Sesj8DawyAjcRuE9fAnhrXXW1jfkxfuNYX7bBbTY5JxeX4i%2BgiiQY3BK9HbBKJLuj8lpHG%2FId1O%2BN3sVUcszM%2FTzfQzLnjHithBcOUeLog1a1TUVbK7MAkXZMWf76OUhjFgMbaurOqfozC8rkqxra51fEB%2BIw9deVUGyysf2FM1vDaGq0sfH3FxCblyjd2XTYoDpptjv7o08gdJZh9p3clzhzrmtqDrSLe8AbhMZgtS8mnbvIFuEjqpDO6ZV2HWcMhRrLDVOci%2BjG7SqbikMHk5CySIOEqcyG%2FmKIurLlC3JrQbTEnMQtNnIt2EjpfiGg804vZ2v0YlCU1ZayoeR5y0F4hCxwaEbEioYIJCaCvZ3XOfJmxdZb59Ybs9EHYAhAQDqVOljQAhSMecsO3SKv2MuZ%2Ff79yvpXLOI9O%2BfMMph8ms6Yt%2FJ1m%2BDa8%2B08AjIRuS00BXjtmaTAM9nX2BziSZXfPW0%2BZ8yVD1JaUhfNeZ%2FHBA4LEUMbCH2Gc5m20jTxKOGwCKp7oM17KukOMHOAhYUO4FQ5kuri9e8NRMn1d8U4YEbg9Z6IhsLqj5JtmWcBj68jdFCbg34NJkYTrD93fuScZfPBWsBqokWGaNrp8LaeDgmICDmqV3mle7laVdRKN2iNTGKzXBHtPphtczyrbbHbtSypsCsogZ6JC74XVK%2F0%2BmuZoLNqhmgVybQJpFutpYpybHqtWtWFgSP9GXism92Q6wiSVNo3%2BZIwtj4zbYU21w1%2BJ5T47CPXRhOG8DQi4kdMAYM68YvlUOW%2FMDsiO%2BBawLI1%2FayMA%2BFBQvtvRnlgHaUCtHVSuv42plmVIrSMiUWoFsFGHDaqUWHCZx%2BMTzQlIx8lPKW89un0hC5lFemdjmjy1aemS1aOl1XVYdg6TG0uOOQRIWXErLeX4YDgg5kJAhTLqgYQDZhjGpa%2FPpmF7h7pt65JnSK68hvYIhhGNWr0ryVVv%2FGpU1ndKiz%2BQ4vz3LHsjruXIyxPyitD4ToMbMPlbLKveElztDTmfvGUmhX23mQW5gSzx0ZB568qzVXH6JHYWHDyldpEXReM%2FCNU1bTSQ91zuihMxSyQxsUAnVYkYnGYiBr7RdrGNoExxTSxqd5JgPUAnsHtbONsG%2FHtQ1NFFJ2QvVmbAEFgpsvZ87e9kSkIVUAVljobBcz7VdwyGLqapHuR7FhxJ2%2Bf8N%2BDZaxyu%2F%2FzWoY60j6IE%2B7iprP9omgQGhGtsk8JltEm3YIr8HssegZ1KODxFsXzpVE%2FyjZJWuKIN60YOKjMYmdC1z9nyQiAYXKsJuufuQbTHkhpQbNlwlxWdWZDKy4Cl0VbNqL%2BsFHVMiBKtkl1oTWG471X6crUSwX1AsIppSolJHj5dftm8lazXlRUd9gmu903RcV%2F7hq2WXyT%2BbaF302O%2F4l63JNJqzUK%2Fl8hW2PcC45lI13zHkBitRc%2B32y%2B%2BY%2FdotDf7oUiEGhOpaKsRwSdLwsoSvlpw6plWakLtroRWs8V%2BsVXAfemNahQxrlVqW%2B70DlXNcnrJ7oRXwe25z1lwtvO1exVJxfNez55AlLAvOtur4tlHY%2BhatomJJp1WuIqhMbVUz%2FR6002g6ZTtnzkDM7F2cKQJCLiRUU6boGm7T8ntQmdIEX8Ou6RUMvi7dzQOjOPfE7Txn6xV0x4FhvepBZcvug2IBD%2BRfHH8BQvjE%2BOsS2avVp69hOnth0hiUG4FKb%2F9I57mY4JlwuyEU2Aah2ftSl3sP1GKBAbiQ1yjfLhyJz3zRyLravom1%2Fj0yqGtIAh7bv7RDG7p%2BXFOHtuvrr2PKRAeOonOaBoPfW28wgE1B8g41htKWQvLAVH2hThdn9wCZDoh5DqzynYtTBx1ryKtxk1twUudOB4AFoSO%2FrwMiy2kOWT1o3SmDg04jyz4KAd%2B90AO%2BgyxI1tTWEhdYftP%2BUC2xdBK2judpS3t7w9aWQzRVS6it4K4Frdsx0IKw72KU2jB%2BPBGXl0CnB9m%2BJtk%2FeR%2F%2F524%2F%2FXXgjwKYrk4GPdhZpAuxu1b29uSXgwVgu%2Fmu7el8PTv21jEXkjWVGNv1al2p1NLr4tJMfo1A29Wq3baekgm4OUdfvsiywqARd9nbNha%2BnjeqMqp88VA5EEdPaZhGrS6X2mDrpYu1G4%2Ba4KXTfROnc51Wx0wcTElsOSq%2B3JUezXVq20YPHbhpE9eH2pUmWO%2BaYz30KvaztQwQqst1OrChwbReqaWvR2j%2F2%2FacNhoey589rN1C2YQrUMteu59D6ArzXOfo%2B%2BJa9KNq9UbRvOcyimuNfcgD28Ah9%2BriF%2Fu6%2F9HjAtj735RGk%2F8A"></iframe>
+    </div>
+  </div>
+</div>
